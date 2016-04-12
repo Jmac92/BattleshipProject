@@ -1,3 +1,9 @@
+''' <summary>
+''' The Game Logic provides calls to load & free 
+''' the game's resources, draw and update the game,
+''' as well as managing the game window itself.
+''' </summary>
+
 Module GameLogic
     Public Sub Main()
         'Opens a new Graphics Window
@@ -6,6 +12,7 @@ Module GameLogic
         'Load Resources
         LoadResources()
 
+        'Play Music
         SwinGame.PlayMusic(GameMusic("Background"))
 
         'Game Loop
@@ -14,6 +21,7 @@ Module GameLogic
             DrawScreen()
         Loop Until SwinGame.WindowCloseRequested() = True Or CurrentState = GameState.Quitting
 
+        'Stop Music
         SwinGame.StopMusic()
 
         'Free Resources and Close Audio, to end the program.
