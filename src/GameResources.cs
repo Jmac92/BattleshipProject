@@ -7,9 +7,16 @@ using System.Data;
 using System.Diagnostics;
 using SwinGameSDK;
 
+/// <summary>
+/// The GameResources is responsible for providing the game with
+/// the resources required, such as images, fonts, and sounds.
+/// </summary>
 public static class GameResources
 {
 
+/// <summary>
+/// Loads the fonts that are gonna be used on certain menues.
+/// </summary>
     private static void LoadFonts()
     {
         NewFont("ArialLarge", "arial.ttf", 80);
@@ -18,6 +25,9 @@ public static class GameResources
         NewFont("Menu", "ffaccess.ttf", 8);
     }
 
+/// <summary>
+/// Loads the images that are gonna be used on certain menues.
+/// </summary>
     private static void LoadImages()
     {
         //Backgrounds
@@ -45,6 +55,9 @@ public static class GameResources
 
     }
 
+/// <summary>
+/// Loads the sounds that are gonna be used.
+/// </summary>
     private static void LoadSounds()
     {
         NewSound("Error", "error.wav");
@@ -56,6 +69,9 @@ public static class GameResources
         NewSound("Lose", "lose.wav");
     }
 
+/// <summary>
+/// Loads the background music which is used during the game.
+/// </summary>
     private static void LoadMusic()
     {
         NewMusic("Background", "horrordrone.mp3");
