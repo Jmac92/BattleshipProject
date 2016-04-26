@@ -40,6 +40,8 @@ static class MenuController
         }
 
     };
+    private static int CURRENT_DIFFICULTY = 1;
+
     private const int MENU_TOP = 575;
     private const int MENU_LEFT = 30;
     private const int MENU_GAP = 0;
@@ -169,6 +171,19 @@ static class MenuController
 
         DrawButtons(MAIN_MENU);
         DrawButtons(SETUP_MENU, 1, 1);
+
+        //Highlight currently selected difficulty.
+        switch (CURRENT_DIFFICULTY){
+            case 1:
+            SwinGame.DrawRectangle(HIGHLIGHT_COLOR, 105, 558, BUTTON_WIDTH, BUTTON_HEIGHT);
+                break;
+            case 2:
+            SwinGame.DrawRectangle(HIGHLIGHT_COLOR, 180, 558, BUTTON_WIDTH, BUTTON_HEIGHT);
+                break;
+            case 3:
+            SwinGame.DrawRectangle(HIGHLIGHT_COLOR, 255, 558, BUTTON_WIDTH, BUTTON_HEIGHT);
+                break;
+        }
     }
 
     /// <summary>
@@ -285,12 +300,15 @@ static class MenuController
         switch (button) {
             case SETUP_MENU_EASY_BUTTON:
 			GameController.SetDifficulty(AIOption.Hard);
+            CURRENT_DIFFICULTY = 1;
                 break;
             case SETUP_MENU_MEDIUM_BUTTON:
 			GameController.SetDifficulty(AIOption.Hard);
+            CURRENT_DIFFICULTY = 2;
                 break;
             case SETUP_MENU_HARD_BUTTON:
 			GameController.SetDifficulty(AIOption.Hard);
+            CURRENT_DIFFICULTY = 3;
                 break;
         }
         //Always end state - handles exit button as well
