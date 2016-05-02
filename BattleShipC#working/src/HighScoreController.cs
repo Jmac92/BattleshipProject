@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using SwinGameSDK;
 
-
 /// <summary>
 /// Controls displaying and collecting high score data.
 /// </summary>
@@ -57,11 +56,10 @@ static class HighScoreController
     /// 
     /// Where NNN is the name and SSS is the score
     /// </remarks>
-    
-	private static void LoadScores()
+    private static void LoadScores()
     {
         string filename = null;
-		filename = SwinGame.PathToResource("highscores.txt");
+        filename = SwinGame.PathToResource("highscores.txt");
 
         StreamReader input = default(StreamReader);
         input = new StreamReader(filename);
@@ -97,10 +95,10 @@ static class HighScoreController
     /// 
     /// Where NNN is the name and SSS is the score
     /// </remarks>
-    public static void SaveScores()
+    private static void SaveScores()
     {
         string filename = null;
-		filename = PathToResource("highscores.txt");
+        filename = SwinGame.PathToResource("highscores.txt");
 
         StreamWriter output = default(StreamWriter);
         output = new StreamWriter(filename);

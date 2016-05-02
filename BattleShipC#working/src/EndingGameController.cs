@@ -14,8 +14,6 @@ using SwinGameSDK;
 static class EndingGameController
 {
 
-
-
     /// <summary>
     /// Draw the end of the game screen, shows the win/lose state
     /// </summary>
@@ -28,8 +26,7 @@ static class EndingGameController
             SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
         } else {
 			SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-        
-		}
+        }
     }
 
     /// <summary>
@@ -40,9 +37,8 @@ static class EndingGameController
     {
         if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			HighScoreController.ReadHighScore(GameController.HumanPlayer.Score);
-			HighscoreController.SaveScores();
-			GameController.EndCurrentState();
-		}
+            GameController.EndCurrentState();
+        }
     }
 
 }
