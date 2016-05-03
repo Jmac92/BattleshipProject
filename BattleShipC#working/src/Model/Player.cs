@@ -21,6 +21,7 @@ public class Player : IEnumerable<Ship>
     private int _hits;
 
     private int _misses;
+    private int _kills;
     /// <summary>
     /// Returns the game that the player is part of.
     /// </summary>
@@ -110,6 +111,10 @@ public class Player : IEnumerable<Ship>
         get { return _hits; }
     }
 
+    public int Kills {
+        get { return _kills; }
+    }
+
     /// <summary>
     /// Total number of shots that missed
     /// </summary>
@@ -186,6 +191,8 @@ public class Player : IEnumerable<Ship>
 
         switch (result.Value) {
             case ResultOfAttack.Destroyed:
+                _kills += 1;
+                break;
             case ResultOfAttack.Hit:
                 _hits += 1;
                 break;
