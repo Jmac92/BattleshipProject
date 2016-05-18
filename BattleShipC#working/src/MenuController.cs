@@ -26,7 +26,8 @@ static class MenuController
             "PLAY",
             "SETUP",
             "SCORES",
-            "QUIT"
+            "QUIT",
+			"QUICK PLAY"
         },
         new string[] {
             "RETURN",
@@ -57,6 +58,7 @@ static class MenuController
     private const int MAIN_MENU_PLAY_BUTTON = 0;
     private const int MAIN_MENU_SETUP_BUTTON = 1;
     private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+	private const int MAIN_MENU_QUICK_PLAY_BUTTON = 4;
 
     private const int MAIN_MENU_QUIT_BUTTON = 3;
     private const int SETUP_MENU_EASY_BUTTON = 0;
@@ -285,6 +287,13 @@ static class MenuController
             case MAIN_MENU_TOP_SCORES_BUTTON:
 			GameController.AddNewState(GameState.ViewingHighScores);
                 break;
+			case MAIN_MENU_QUICK_PLAY_BUTTON:
+				GameController.StartGame ();
+				GameController.HumanPlayer.RandomizeDeployment ();
+				if (GameController.HumanPlayer.ReadyToDeploy) {
+					GameController.EndDeployment ();
+				}
+				break;
             case MAIN_MENU_QUIT_BUTTON:
                 GameController.EndCurrentState();
                 break;
